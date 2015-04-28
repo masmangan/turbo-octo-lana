@@ -126,9 +126,29 @@ public class BinarySearchTree {
 		return new int[0];
 	}
 
-	public int getParent(int i) {
-		// TODO Auto-generated method stub
-		return 0;
+	/**
+	 * 
+	 * @param value
+	 * @return
+	 */
+	public int getParent(int value) {
+		return getParent(null, root, value);
 	}
-
+	
+	private int getParent(Node parent, Node node, int value)
+	{
+		if (node == null)
+			throw new IllegalArgumentException("Valor não encontrado: " + value);
+		
+		if (value < node.value)
+			return getParent(node, node.left, value);
+		
+		if (value > node.value)
+			return getParent(node, node.right, value);
+		
+		if (parent != null)
+			return parent.value;
+		
+		throw new IllegalArgumentException("Valor sem pai: " + value);
+	}
 }
