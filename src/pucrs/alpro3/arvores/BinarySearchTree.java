@@ -121,4 +121,9 @@ public class BinarySearchTree {
 				+ toString(node.right);
 	}
 
+	public int[] getChildren(int i) {
+		// TODO Auto-generated method stub
+		return new int[0];
+	}
+
 }
