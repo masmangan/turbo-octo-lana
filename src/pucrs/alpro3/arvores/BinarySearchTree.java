@@ -126,4 +126,9 @@ public class BinarySearchTree {
 		return new int[0];
 	}
 
+	public int getParent(int i) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

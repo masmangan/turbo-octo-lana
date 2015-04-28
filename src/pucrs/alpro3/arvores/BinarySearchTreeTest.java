@@ -52,4 +52,36 @@ public class BinarySearchTreeTest {
 		assertEquals(50, actual[0]);
 		assertEquals(150, actual[1]);
 	}	
+
+	@Test(expected=IllegalArgumentException.class)
+	public void testGetParentNoParent() {
+		BinarySearchTree bst = new BinarySearchTree();
+		bst.add(100);
+		bst.getParent(100);
+	}
+
+	@Test(expected=IllegalArgumentException.class)
+	public void testParentNotFound() {
+		BinarySearchTree bst = new BinarySearchTree();
+		bst.add(100);
+		bst.getParent(200);
+	}	
+
+	@Test
+	public void testGetParentLeft() {
+		BinarySearchTree bst = new BinarySearchTree();
+		bst.add(100);
+		bst.add(50);
+		int actual = bst.getParent(50);
+		assertEquals(100, actual);
+	}
+	
+	@Test
+	public void testGetParentRight() {
+		BinarySearchTree bst = new BinarySearchTree();
+		bst.add(100);
+		bst.add(150);
+		int actual = bst.getParent(150);
+		assertEquals(100, actual);
+	}
 }
