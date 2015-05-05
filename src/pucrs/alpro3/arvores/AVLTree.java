@@ -46,6 +46,18 @@ public class AVLTree {
 
 		if (value < node.value) {
 			node.left = add(node.left, value);
+			int delta = h(node.left)- h(node.right);
+			if (delta == 2) {
+				System.out.println("Rotação com o filho da esquerda");
+				System.out.printf("Node: %d, node.left: %d, value: %d\n",
+						node.value, node.left.value, value);
+				// o esquerdo do 20 recebe o direito do 10
+				
+				// o direito do 10 recebe o 20
+				
+				// retornar 10 como novo raiz da subarvore
+			}
+			
 		} else if (value > node.value)
 			node.right = add(node.right, value);
 		else
@@ -84,7 +96,7 @@ public class AVLTree {
 	private String toString(Node node) {
 		if (node == null)
 			return "*";
-		return node.value + " (" + node.height + ") " + toString(node.left)
+		return node.value + " (" + node.height + ")  [" + (h(node.left)- h(node.right)) + "] " + toString(node.left)
 				+ " " + toString(node.right);
 	}
 

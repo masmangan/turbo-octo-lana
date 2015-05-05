@@ -20,6 +20,9 @@ public class AVLTreeApp {
 		bst.add(10);
 		System.out.println(bst.size());
 		System.out.println(bst);		
+		bst.add(5);
+		System.out.println(bst.size());
+		System.out.println(bst);		
 		
 		System.out.println(bst.contains(20));
 		System.out.println(bst.contains(21));
