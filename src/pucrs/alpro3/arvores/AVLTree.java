@@ -1,6 +1,5 @@
 package pucrs.alpro3.arvores;
 
-
 /**
  * 
  * @author marco.mangan@pucrs.br
@@ -10,11 +9,13 @@ public class AVLTree {
 
 	private class Node {
 		int value;
+		int height;
 		Node left, right;
 
 		public Node(int value) {
 			this.value = value;
 			left = right = null;
+			height = 0;
 			count++;
 		}
 	}
@@ -43,14 +44,20 @@ public class AVLTree {
 		if (node == null)
 			return new Node(value);
 
-		if (value < node.value)
+		if (value < node.value) {
 			node.left = add(node.left, value);
-		else if (value > node.value)
+		} else if (value > node.value)
 			node.right = add(node.right, value);
 		else
 			throw new RuntimeException("A chave já está cadastrada: " + value);
-
+		//
+		node.height = 1 + Math.max(h(node.left), h(node.right));
+		//
 		return node;
+	}
+
+	private int h(Node node) {
+		return node == null ? -1 : node.height;
 	}
 
 	public boolean contains(int value) {
@@ -77,8 +84,8 @@ public class AVLTree {
 	private String toString(Node node) {
 		if (node == null)
 			return "*";
-		return node.value + " " + toString(node.left) + " "
-				+ toString(node.right);
+		return node.value + " (" + node.height + ") " + toString(node.left)
+				+ " " + toString(node.right);
 	}
 
-	}
+}

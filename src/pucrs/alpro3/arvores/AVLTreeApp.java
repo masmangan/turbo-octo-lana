@@ -3,7 +3,7 @@ package pucrs.alpro3.arvores;
 public class AVLTreeApp {
 
 	public static void main(String[] args) {
-		BinarySearchTree bst = new BinarySearchTree();
+		AVLTree bst = new AVLTree();
 
 		System.out.println(bst.size());
 		System.out.println(bst);
