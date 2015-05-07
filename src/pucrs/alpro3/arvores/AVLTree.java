@@ -51,11 +51,16 @@ public class AVLTree {
 				System.out.println("Rotação com o filho da esquerda");
 				System.out.printf("Node: %d, node.left: %d, value: %d\n",
 						node.value, node.left.value, value);
+				// 
+				Node a = node.left;
 				// o esquerdo do 20 recebe o direito do 10
-				
+				node.left = a.right;
 				// o direito do 10 recebe o 20
-				
+				a.right = node;
 				// retornar 10 como novo raiz da subarvore
+				node.height = 1 + Math.max(h(node.left), h(node.right));
+				a.height = 1+ Math.max(h(a.left), h(a.right));
+				node = a;
 			}
 			
 		} else if (value > node.value)
